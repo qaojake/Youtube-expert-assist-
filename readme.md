@@ -11,7 +11,7 @@ Input2 = what  visualization you want to show!?
 
 Chart JS: https://www.chartjs.org/
 
-YouTube video: 
+YouTube video: https://www.youtube.com/watch?v=Y7OAk7DiLJs
 
 
 
