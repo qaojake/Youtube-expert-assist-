@@ -62,8 +62,10 @@ def readfile(filename):
     # use panda to read the file because i can use DATAFRAME to read the file
     #column;culumn2;column
     global rows,columns,data,my_file,missing_values
+     #read the missing data - checking if there is a null
+    missingvalue = ['?', '0', '--']
 
-    my_file = pd.read_csv(filename, sep='[:;,|_]', engine='python')
+    my_file = pd.read_csv(filename, sep='[:;,|_]',na_values=missingvalue, engine='python')
 
     data = pd.DataFrame(data=my_file, index=None)
     print(data)
@@ -71,8 +73,6 @@ def readfile(filename):
     rows = len(data.axes[0])
     columns = len(data.axes[1])
 
-    #read the missing data - checking if there is a null
-    missingvalue = ['?', '0', '--']
 
     null_data = data[data.isnull().any(axis=1)] # find where is the missing data #na null =['x1','x13']
     missing_values = len(null_data)
